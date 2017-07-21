@@ -1,8 +1,16 @@
 ## Swift Playground Books: Always-On Live Views
 
-Hey what's up everybody, this is Ray. In today's screencast, I'm going to show you how you can add always-on live views to your Playground Books, and how you can pass messages between your Playgrounds and your Live Views. This will allow you to influence what's happening in your live view, by writing code in your playground.
+Hey what's up everybody, this is Ray. 
 
-You see this technique used quite heavily in Apple's Learn to Code Playground Book. They have a game running over on the right hand side, and you can make the character in the game move by writing code over on the left hand side. The nice thing about always-on-live views is it gives the users something fun and visual to enjoy as they write code, giving them some good motivation to keep learnign and experimenting.
+[Slide 4 down]
+
+In today's screencast, I'm going to show you how you can add always-on live views to your Playground Books, and how you can pass messages between your Playgrounds and your Live Views. This will allow you to influence what's happening in your live view, by writing code in your playground.
+
+You see this technique used quite heavily in Apple's Learn to Code Playground Book. 
+
+[Slide 5]
+
+They have a game running over on the right hand side, and you can make the character in the game move by writing code over on the left hand side. The nice thing about always-on-live views is it gives the users something fun and visual to enjoy as they write code, giving them some good motivation to keep learnign and experimenting.
 
 ## Demo
 
@@ -32,7 +40,13 @@ At this point, we have a view controller running in an always-on live view, befo
 
 Now, we want to be able to affect the always-on live view from our playground. But there's one problem - we can't access the live view directly.
 
-You can think of our playground code, and our live view as running in entirely differnet processes. The only way they can communicate is through a proxy class created by Apple: PlaygroundRemoteLiveViewProxy.
+[Slide 6 down]
+
+You can think of our playground code, and our live view as running in entirely different processes, that are walled off from each other.
+
+[Slide 7 fade]
+
+The only way they can communicate is through a proxy class created by Apple: PlaygroundRemoteLiveViewProxy.
 
 In your Playground, you get a PlaygroundRemoteLiveViewProxy and send messages to it - kinda like sending network packets across the wire.
 
@@ -40,9 +54,15 @@ Then, in your Live View - you implement PlaygroundLiveViewMessageHandler on your
 
 In our case, we're going to send a message to change the target frame that the view is animating to. Let's take a look at how we do that.
 
+[Slide 8 fade]
+
 The only thing you can send from a playground to a live view is a certain type called a PlaygroundValue. A PlaygroudnValue can contain an array, boolean, data, date, dictionary, floatingPoint, integer, or string.
 
-So how can you use this to perform a command over on the other side? Well, one good way is to use a dictionary. You can have a key for the command name that specifies a sting with the command to perform. Then, you can include other keys for each parameter, with the value being the value you are passing across.
+So how can you use this to perform a command over on the other side? Well, one good way is to use a dictionary. 
+
+[Slide 9 fade]
+
+You can have a key for the command name that specifies a sting with the command to perform. Then, you can include other keys for each parameter, with the value being the value you are passing across.
 
 In our case, we will set up a command name for "animate the frame and center", with parameters for "centerX", "centerY", "width", and "height". Let's try it out.
 
@@ -95,6 +115,8 @@ Ack - I'm getting a "No such module" error. What gives?
 It turns out the PlaygroundSupport module doesn't exist for iOS - just playgrounds - kinda makes sense.
 
 But I'd like to be able to compile AnimationViewController.swift in my Xcode project, because it's really handy for testing it out. To do this, I need to use a mock version of PlaygroundSupport on the iOS side.
+
+[Slide 10 down]
 
 It turns out Lou Franco wrote a handy PlaygroundSupport mock that is perfect for this. I forked it and updated it for Swift 4, so let's use that.
 
@@ -170,7 +192,9 @@ public func receive(_ message: PlaygroundValue) {
   }
 ```  
 
-OK - that's it for the View Controller side. Back in Contents.swift, I'll start by adding some instructions for the user.
+OK - that's it for the View Controller side. Back to the Playground side - first let me fix the name of LiveView.swift, which got messed up somehow.
+
+Back in Contents.swift, I'll start by adding some instructions for the user.
 
 Then, I'll add a hidden code section, and import everything I need.
 
@@ -216,16 +240,16 @@ func animateFrame(centerX: Double, centerY: Double, width: Double, height: Doubl
 animateFrame(centerX: /*#-editable-code*/200/*#-end-editable-code*/, /*#-editable-code*/centerY: 200/*#-end-editable-code*/, width: /*#-editable-code*/50/*#-end-editable-code*/, height: /*#-editable-code*/50/*#-end-editable-code*/)
 ```
 
-That's it! I'll AirDrop this over to my iPad, and now when I type Run My Code, it sends a message across to the other side that influences the always-on live view. Nice!
+That's it! I'll AirDrop this over to my iPad, and now when I type Run My Code, it sends a message across to the other side that influences the always-on live view. 
+
+Nice!
 
 ## Conclusion
 
 Allright, that's everything I'd like to cover in this screencast.
 
-Just like we communicated from the Playground to the View Controller using PlaygroundRemoteLiveViewProxy and PlaygroundLiveViewMessageHandler, we can go back the other way with PlaygroundRemoteLiveViewProxyDelegate. 
+Note that just like we communicated from the Playground to the View Controller using PlaygroundRemoteLiveViewProxy and PlaygroundLiveViewMessageHandler, if you want you can go back the other way with PlaygroundRemoteLiveViewProxyDelegate. 
 
-If you watched this screencast and my other Playground Book screencasts, at this point you should have a solid understanding of how to make Playground Books. There are a few other things that you can do with Playground Books, like glossaries, key value stores, and copying code between pages, but you should be able to pick this up on your own reading Apple's Playground Books documentation. 
-
-I'd love to see what you end up making with Swift Playground Books - please send anything cool you make my way so I can check it out. 
+If you watched this screencast and my other Playground Book screencasts, at this point you should have a solid understanding of how to make Playground Books. I'd love to see what you end up making with Swift Playground Books - please send anything cool you make my way so I can check it out. 
 
 Speaking of books, do you know why books are afraid of their sequels? Because they always come after them. Allright - I'm out!

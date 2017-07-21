@@ -1,6 +1,10 @@
 ## Swift Playground Books: Challenges and Assessments
 
-Hey what's up everybody, this is Ray. In today's screencast, I'm going to show you how to add challenges for the user to complete into your playgrounds, and how to use assessments to check if they passed or failed. 
+Hey what's up everybody, this is Ray. 
+
+[Slide 2 down]
+
+In today's screencast, I'm going to show you how to add challenges for the user to complete into your playgrounds, and how to use assessments to check if they passed or failed. 
 
 ## Demo
 
@@ -96,7 +100,9 @@ At this point, our playground works, but it isn't very interactive. What is the 
 
 This is where you can get creative and figure out how you can make a learning puzzle or challenge for the user. In this case, I think it would be cool if instead of just telling the user where to put the views to perform this animation, we leave it up to them.
 
-To do this, I need to do three things:
+To do this, I need to do four things things:
+
+[Slide 3 down]
 
 1. Hide any unnecessary setup code from them.
 2. Add some instructions for the user.
@@ -193,7 +199,7 @@ There are more namespaces besides everything and identifier - there's also keywo
 
 By the way, I only need to set this once, and it stays in effect for all the snippets below where I add these lines. You could change the code completion later on in this file if you want.
 
-That's it! Now I can AirDrop this to my iPad and I have a fully interactive challenge, with code completion.
+That's it! Now I can AirDrop this to my iPad - oops let me fix this typo and try again - and I have a fully interactive challenge, with code completion.
 
 ## Interlude
 

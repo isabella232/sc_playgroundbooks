@@ -1,6 +1,10 @@
 ## Swift Playground Books: Getting Started
 
-Hey what's up everybody, this is Ray. In today's screencast, I'm going to show you how you can make your own Playground Books for the iPad.
+Hey what's up everybody, this is Ray. 
+
+[Slide 1 down]
+
+In today's screencast, I'm going to show you how you can make your own Playground Books for the iPad.
 
 Before we begin, let's review what Playground Books are, and take a look at the Playgrounds app on the iPad.
 
@@ -26,15 +30,13 @@ Swift Playground books introduce many new features beyond traditional Playground
 
 ## Interlude
 
-In this screencast, I'm going to show you how to get started creating your own Playground Books. I'll show you how to take a View Controller from a real Xcode project, and easily use it as the live view in a Playground Book. 
+Under the hood, a Playground Book is simply a folder with a .playgroundbook extension, that contains a collection of Swift files, plists, and other resources in a particular directory format. 
 
-... [TODO Whatever I end up showing here.]
+Let's take a look at an example playground book, and then create one of our own.
 
 ## Demo 2 - Directory Structure (Scripted but Live recording)
 
-Let's start by getting a "Hello, World" playground book running.
-
-A Playground Book is simply a collection of Swift files, plists, and other resources in a particular directory format. I downloaded the Learn to Code playground book from Apple, and if you right click on the file and click "Show Package Contents", you can see inside.
+I downloaded the Learn to Code playground book from Apple, and if you right click on the file and click "Show Package Contents", you can see inside.
 
 The Contents folder is what you'll be creating. The Playgrounds App itself puts any changes to the source code that the user makes into the Edits folder.
 
@@ -78,7 +80,7 @@ Let's see what this looks like in Playgrounds. I'll right click the playground, 
 
 Now that we have an empty starting point, let's create a real playground book.
 
-For this screencast, we're going to take a chapter from our popular book iOS Animations by Tutorials by Marin Todorov, and start converting it into a Playground Book. Let's get started.
+For this screencast, we're going to take a chapter from our popular book iOS Animations by Tutorials by Marin Todorov, and start converting it into a Playground Book. 
 
 ## Demo 4
 
